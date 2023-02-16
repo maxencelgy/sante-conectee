@@ -1,4 +1,5 @@
 import 'package:breath_meditation/pages/home_page.dart';
+import 'package:breath_meditation/pages/inscription_page.dart';
 import 'package:flutter/material.dart';
 
 const navbarColor = Color(0xFF0FD0DA);
@@ -19,10 +20,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xFF122944),
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Breath"),
-        ),
-        body: HomePage(),
+        body: InscriptionPage(),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: const Color(0xFF1E3756),
           selectedItemColor: const Color(0xFF0FD0DA),
