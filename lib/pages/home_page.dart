@@ -1,13 +1,10 @@
+import 'package:breath_meditation/pages/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:breath_meditation/main.dart';
+import 'package:breath_meditation/change_notifier.dart';
 
-import 'event_page.dart';
 
 
 class HomePage extends StatelessWidget {
-  const HomePage({
-    Key? key,
-  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +32,14 @@ class HomePage extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
+
           const Padding(padding: EdgeInsets.only(top: 20)),
           ElevatedButton(
             onPressed: () {
               Navigator.push(
                   context,
                   PageRouteBuilder(
-                      pageBuilder: (_,__,___) => const EventPage()
+                      pageBuilder: (_,__,___) =>  LoginPage()
                   )
               );
             },

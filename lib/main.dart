@@ -1,26 +1,41 @@
 import 'package:breath_meditation/pages/home_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:breath_meditation/pages/login_page.dart';
+import 'package:breath_meditation/pages/profile_page.dart';
+import 'package:breath_meditation/change_notifier.dart';
+import 'package:provider/provider.dart';
 const navbarColor = Color(0xFF0FD0DA);
-//const primaryColor = Color(0xFF151026);
-
-
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => MyState(),
+      child: MyApp(),
+    ),
+  );
 }
 
+
+// final user = User(); // Ajouter cette ligne
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final myState = Provider.of<MyState>(context);
     return MaterialApp(
+      title: 'Mon application',
+      initialRoute: '/login',
+      // Route de départ
+      routes: {
+        '/login': (context) => LoginPage(),
+        '/profile': (context) => ProfilePage(),
+      },
       theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xFF122944),
+        scaffoldBackgroundColor: const Color(0xFF122944),
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Breath"),
+          title: Text('userToken: ${myState.token}'),
         ),
         body: HomePage(),
         bottomNavigationBar: BottomNavigationBar(
@@ -28,30 +43,13 @@ class MyApp extends StatelessWidget {
           selectedItemColor: const Color(0xFF0FD0DA),
           unselectedItemColor: Colors.white,
           items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Accueil'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: 'Explorer'
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profil'
-            ),
+                icon: Icon(Icons.search), label: 'Explorer'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profil'),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
