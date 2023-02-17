@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
           title: Text('userToken: ${myState.token}'),
         ),
         body: HomePage(),
-     ²&   bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: BottomNavigationBar(
           backgroundColor: const Color(0xFF1E3756),
           selectedItemColor: const Color(0xFF0FD0DA),
           unselectedItemColor: Colors.white,
