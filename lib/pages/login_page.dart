@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:breath_meditation/change_notifier.dart';
-import 'package:breath_meditation/main.dart';
 
 class LoginPage extends StatefulWidget {
   @override
