@@ -1,5 +1,4 @@
 import 'package:breath_meditation/pages/home_page.dart';
-import 'package:breath_meditation/pages/inscription_page.dart';
 import 'package:flutter/material.dart';
 import 'package:breath_meditation/pages/login_page.dart';
 import 'package:breath_meditation/pages/profile_page.dart';
@@ -35,7 +34,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF122944),
       ),
       home: Scaffold(
-        body: InscriptionPage(),
+        appBar: AppBar(
+          title: Text('userToken: ${myState.token}'),
+        ),
+        body: HomePage(),
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: const Color(0xFF1E3756),
           selectedItemColor: const Color(0xFF0FD0DA),
