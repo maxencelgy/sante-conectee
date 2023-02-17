@@ -24,9 +24,10 @@ class MyApp extends StatelessWidget {
     final myState = Provider.of<MyState>(context);
     return MaterialApp(
       title: 'Mon application',
-      initialRoute: '/login',
+      initialRoute: '/signup',
       // Route de départ
       routes: {
+        '/signup': (context) => InscriptionPage(),
         '/login': (context) => LoginPage(),
         '/profile': (context) => ProfilePage(),
       },
