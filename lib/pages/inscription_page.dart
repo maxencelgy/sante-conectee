@@ -8,6 +8,8 @@ class InscriptionPage extends StatefulWidget {
   State<InscriptionPage> createState() => _InscriptionPageState();
 }
 
+
+
 class _InscriptionPageState extends State<InscriptionPage> {
 
   final _formKey = GlobalKey<FormState>();
