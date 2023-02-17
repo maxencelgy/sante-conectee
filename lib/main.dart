@@ -4,6 +4,8 @@ import 'package:breath_meditation/pages/login_page.dart';
 import 'package:breath_meditation/pages/profile_page.dart';
 import 'package:breath_meditation/change_notifier.dart';
 import 'package:provider/provider.dart';
+import 'package:breath_meditation/pages/inscription_page.dart';
+
 const navbarColor = Color(0xFF0FD0DA);
 void main() {
   runApp(
@@ -27,6 +29,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       // Route de départ
       routes: {
+        // '/home': (context) => HomePage(),
+        '/signup': (context) => InscriptionPage(),
         '/login': (context) => LoginPage(),
         '/profile': (context) => ProfilePage(),
       },
