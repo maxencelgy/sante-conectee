@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 const navbarColor = Color(0xFF0FD0DA);
 //const primaryColor = Color(0xFF151026);
 
-
 void main() {
   runApp(const MyApp());
 }
