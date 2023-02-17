@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 
 class InscriptionPage extends StatefulWidget {
   const InscriptionPage({Key? key}) : super(key: key);
-
   @override
   State<InscriptionPage> createState() => _InscriptionPageState();
 }
-
-
 
 class _InscriptionPageState extends State<InscriptionPage> {
 
