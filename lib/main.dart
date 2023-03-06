@@ -11,8 +11,22 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  int _currentIndex = 0;
+
+  setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +35,14 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color(0xFF122944),
       ),
       home: Scaffold(
-        body: InscriptionPage(),
+        body: [
+          HomePage(),
+          // ExplorerPage(),
+          // ProfilPage()
+        ][_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) => setCurrentIndex(index),
           backgroundColor: const Color(0xFF1E3756),
           selectedItemColor: const Color(0xFF0FD0DA),
           unselectedItemColor: Colors.white,

@@ -28,8 +28,9 @@ class _InscriptionPageState extends State<InscriptionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-    child: Container(
+    return Scaffold(
+      body: SingleChildScrollView(
+      child: Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -237,6 +238,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
           )
         ],
       ),
+    ),
     ),
     );
   }

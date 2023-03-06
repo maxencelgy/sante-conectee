@@ -26,7 +26,8 @@ class _ConnexionPageState extends State<ConnexionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return Scaffold(
+        body: SingleChildScrollView(
       child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +133,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
                           }
                         },
                         child: Text(
-                          "S'inscrire",
+                          "Se connecter",
                           style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
@@ -183,6 +184,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
           ],
         ),
       ),
+    ),
     );
   }
 }
