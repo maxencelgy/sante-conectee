@@ -1,5 +1,6 @@
 import 'package:breath_meditation/pages/home_page.dart';
 import 'package:breath_meditation/pages/inscription_page.dart';
+import 'package:breath_meditation/pages/connexion_page.dart';
 import 'package:flutter/material.dart';
 
 const navbarColor = Color(0xFF0FD0DA);

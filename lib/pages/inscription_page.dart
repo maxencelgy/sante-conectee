@@ -1,3 +1,4 @@
+import 'package:breath_meditation/pages/connexion_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,8 @@ class _InscriptionPageState extends State<InscriptionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SingleChildScrollView(
+    child: Container(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -221,7 +223,9 @@ class _InscriptionPageState extends State<InscriptionPage> {
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                print('Terms of Service"');
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) => ConnexionPage()
+                                ));
                               })
                           ]
                       )
@@ -233,6 +237,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
           )
         ],
       ),
+    ),
     );
   }
 }
