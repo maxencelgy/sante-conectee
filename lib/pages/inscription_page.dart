@@ -1,3 +1,4 @@
+import 'package:breath_meditation/pages/connexion_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -27,47 +28,56 @@ class _InscriptionPageState extends State<InscriptionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(
-              "assets/images/breath-img.png",
-              height: 100,
-              width: 100,
-            ),
-            Container(
-                margin: EdgeInsets.only(left: 30),
-                child: const Text(
-                  "S'inscrire",
-                  style: TextStyle(
-                      fontSize: 40,
-                      fontFamily: "FiraSansCondensed",
-                      color: Colors.white
-                  ),
-                )
-            ),
-            Container(
-                margin: EdgeInsets.only(left: 30),
-                child: const Text(
-                  "Inscrivez-vous pour accéder à nos exercices",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: "FiraSansCondensed",
-                      color: Colors.white
-                  ),
-                )
-            ),
-            Container(
-              margin: EdgeInsets.all(30),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(bottom: 20),
-                      child: TextFormField(
-                        style: TextStyle(
+    return SingleChildScrollView(
+      child: Container(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+              margin: EdgeInsets.only(top: 30),
+              child: Image.asset(
+                "assets/images/breath-img.png",
+                height: 100,
+                width: 100,
+              )
+          ),
+          Container(
+              margin: EdgeInsets.only(left: 30),
+              child: const Text(
+                "S'inscrire",
+                style: TextStyle(
+                  fontSize: 40,
+                  fontFamily: "FiraSansCondensed",
+                  color: Colors.white
+                ),
+              )
+          ),
+          Container(
+              margin: EdgeInsets.only(left: 30),
+              child: const Text(
+                "Inscrivez-vous pour accéder à nos exercices",
+                style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "FiraSansCondensed",
+                    color: Colors.white
+                ),
+              )
+          ),
+          Container(
+            margin: EdgeInsets.all(30),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(bottom: 20),
+                    child: TextFormField(
+                      style: TextStyle(
+                          color: Colors.white
+                      ),
+                      decoration: InputDecoration(
+                          hintText: "Prénom et nom",
+                          hintStyle: TextStyle(
                             color: Colors.white
                         ),
                         decoration: InputDecoration(
@@ -228,13 +238,42 @@ class _InscriptionPageState extends State<InscriptionPage> {
                               ]
                           )
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: RichText(
+                      text: TextSpan(
+                          children: <TextSpan>[
+                      TextSpan(
+                          text: 'Vous avez déjà un compte? ',
+                          style: TextStyle(
+                          color: Colors.white
+                        )
+                      ),
+                        TextSpan(
+                            text: 'Se connecter',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                                color: Colors.white
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(context, MaterialPageRoute(
+                                    builder: (context) => ConnexionPage()
+                                ));
+                              })
+                          ]
+                      )
+                    ),
+                  )
+                ],
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
+      ),
+    ),
     );
   }
 }
