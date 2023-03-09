@@ -1,4 +1,6 @@
 import 'package:breath_meditation/pages/home_page.dart';
+import 'package:breath_meditation/pages/inscription_page.dart';
+import 'package:breath_meditation/pages/connexion_page.dart';
 import 'package:flutter/material.dart';
 import 'package:breath_meditation/pages/login_page.dart';
 import 'package:breath_meditation/pages/profile_page.dart';
@@ -18,15 +20,29 @@ void main() {
 
 
 // final user = User(); // Ajouter cette ligne
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  int _currentIndex = 0;
+
+  setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     final myState = Provider.of<MyState>(context);
     return MaterialApp(
       title: 'Mon application',
-      initialRoute: '/login',
+      initialRoute: '/signup',
       // Route de départ
       routes: {
         // '/home': (context) => HomePage(),
@@ -41,8 +57,14 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('userToken: ${myState.token}'),
         ),
-        body: HomePage(),
+        body: [
+          HomePage(),
+          // ExplorerPage(),
+          // ProfilPage()
+        ][_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) => setCurrentIndex(index),
           backgroundColor: const Color(0xFF1E3756),
           selectedItemColor: const Color(0xFF0FD0DA),
           unselectedItemColor: Colors.white,
