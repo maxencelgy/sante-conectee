@@ -211,7 +211,14 @@ class _InscriptionPageState extends State<InscriptionPage> {
                       width: double.infinity,
                       height: 50,
                       child: ElevatedButton(
-                        child: _isLoading ? CircularProgressIndicator() : Text('Inscription'),
+                        child: _isLoading ? CircularProgressIndicator() : Text(
+                          'Valider',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "FiraSansCondensed"
+                          ),
+                        ),
                         onPressed: _isLoading ? null : _inscription,
                         style: ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll<Color>(
@@ -239,7 +246,6 @@ class _InscriptionPageState extends State<InscriptionPage> {
                                         fontWeight: FontWeight.w700, color: Colors.white),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
-
                                         Navigator.pushNamed(context, '/login');
                                       })
                               ]
