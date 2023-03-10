@@ -1,3 +1,5 @@
+import 'package:breath_meditation/index.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -89,6 +91,12 @@ class _IntroWidgetState extends State<IntroWidget> {
                     FFButtonWidget(
                       onPressed: () {
                         print('Button pressed ...');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ConnexionPage(),
+                          ),
+                        );
                       },
                       text: 'SE CONNECTER',
                       options: FFButtonOptions(

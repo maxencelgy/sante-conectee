@@ -1,3 +1,4 @@
+import 'package:breath_meditation/pages/event_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
@@ -103,7 +104,7 @@ class _NavBarPageState extends State<NavBarPage> {
   void initState() {
     super.initState();
     _currentPageName = widget.initialPage ?? _currentPageName;
-    _currentPage = ConnexionPage();
+    _currentPage = IntroWidget();
   }
 
   @override

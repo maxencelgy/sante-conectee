@@ -7,6 +7,10 @@ import 'package:provider/provider.dart';
 import 'user_model.dart';
 export 'user_model.dart';
 import 'package:breath_meditation/change_notifier.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import '/pages/home/home_widget.dart';
+import '/pages/discover/discover_widget.dart';
+
 class UserWidget extends StatefulWidget {
   const UserWidget({Key? key}) : super(key: key);
 
@@ -14,8 +18,11 @@ class UserWidget extends StatefulWidget {
   _UserWidgetState createState() => _UserWidgetState();
 }
 
+
 class _UserWidgetState extends State<UserWidget> {
   late UserModel _model;
+  String _currentPageName = 'Profile';
+  late Widget? _currentPage;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -26,6 +33,7 @@ class _UserWidgetState extends State<UserWidget> {
     _model = createModel(context, () => UserModel());
   }
 
+
   @override
   void dispose() {
     _model.dispose();
@@ -34,9 +42,18 @@ class _UserWidgetState extends State<UserWidget> {
     super.dispose();
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<MyState>(context);
+    final tabs = {
+      'Home': HomeWidget(),
+      'Discover': DiscoverWidget(),
+      'User': UserWidget(),
+    };
+    final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF122944),
@@ -83,7 +100,7 @@ class _UserWidgetState extends State<UserWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  'userToken: ${user.token}',
+                                  '${user.username}',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
@@ -246,6 +263,98 @@ class _UserWidgetState extends State<UserWidget> {
             ],
           ),
         ),
+      ),
+      extendBody: true,
+      bottomNavigationBar: FloatingNavbar(
+        currentIndex: currentIndex,
+        onTap: (i) => setState(() {
+          _currentPage = null;
+          _currentPageName = tabs.keys.toList()[i];
+        }),
+        backgroundColor: Color(0xFF1E3756),
+        selectedItemColor: FlutterFlowTheme.of(context).tertiary400,
+        unselectedItemColor: FlutterFlowTheme.of(context).primaryBtnText,
+        selectedBackgroundColor: Color(0x00000000),
+        borderRadius: 8.0,
+        itemBorderRadius: 8.0,
+        margin: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+        width: double.infinity,
+        elevation: 0.0,
+        items: [
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.home_outlined,
+                  color: currentIndex == 0
+                      ? FlutterFlowTheme.of(context).tertiary400
+                      : FlutterFlowTheme.of(context).primaryBtnText,
+                  size: 24.0,
+                ),
+                Text(
+                  'Home',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 0
+                        ? FlutterFlowTheme.of(context).tertiary400
+                        : FlutterFlowTheme.of(context).primaryBtnText,
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.search,
+                  color: currentIndex == 1
+                      ? FlutterFlowTheme.of(context).tertiary400
+                      : FlutterFlowTheme.of(context).primaryBtnText,
+                  size: 24.0,
+                ),
+                Text(
+                  'Explorer',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 1
+                        ? FlutterFlowTheme.of(context).tertiary400
+                        : FlutterFlowTheme.of(context).primaryBtnText,
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.person,
+                  color: currentIndex == 2
+                      ? FlutterFlowTheme.of(context).tertiary400
+                      : FlutterFlowTheme.of(context).primaryBtnText,
+                  size: 24.0,
+                ),
+                Text(
+                  'Profil',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 2
+                        ? FlutterFlowTheme.of(context).tertiary400
+                        : FlutterFlowTheme.of(context).primaryBtnText,
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
