@@ -1,9 +1,11 @@
+import 'package:breath_meditation/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 import 'package:breath_meditation/change_notifier.dart';
+
 
 class InscriptionPage extends StatefulWidget {
   const InscriptionPage({Key? key}) : super(key: key);
@@ -45,8 +47,10 @@ class _InscriptionPageState extends State<InscriptionPage> {
     );
 
     if (response.statusCode == 200) {
-      // Login successful
-      Navigator.pushNamed(context, '/login');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ConnexionPage()),
+      );
     } else {
       // Login failed
       final body = json.decode(response.body);
@@ -246,7 +250,10 @@ class _InscriptionPageState extends State<InscriptionPage> {
                                         fontWeight: FontWeight.w700, color: Colors.white),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
-                                        Navigator.pushNamed(context, '/login');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(builder: (context) => ConnexionPage()),
+                                        );
                                       })
                               ]
                           )
