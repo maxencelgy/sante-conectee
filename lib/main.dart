@@ -4,6 +4,7 @@ import 'package:breath_meditation/pages/connexion_page.dart';
 import 'package:flutter/material.dart';
 import 'package:breath_meditation/pages/login_page.dart';
 import 'package:breath_meditation/pages/profile_page.dart';
+import 'package:breath_meditation/pages/bluetooth_page.dart';
 import 'package:breath_meditation/change_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -44,8 +45,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/home': (context) => HomePage(),
         '/signup': (context) => InscriptionPage(),
-        '/login': (context) => LoginPage(),
+        '/login': (context) => ConnexionPage(),
         '/profile': (context) => ProfilePage(),
+        '/bluetooth': (context) => BluetoothPage(),
       },
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFF122944),
