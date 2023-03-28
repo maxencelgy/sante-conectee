@@ -1,8 +1,10 @@
+import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
 import 'music_model.dart';
 export 'music_model.dart';
 
@@ -42,14 +44,14 @@ class _MusicWidgetState extends State<MusicWidget> {
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0, 0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 1.0,
-                  height: MediaQuery.of(context).size.height * 1.0,
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 1,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     image: DecorationImage(
@@ -60,22 +62,63 @@ class _MusicWidgetState extends State<MusicWidget> {
                     ),
                   ),
                   child: Container(
-                    width: MediaQuery.of(context).size.width * 1.0,
+                    width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.9,
                     decoration: BoxDecoration(
                       color: Color(0x34000000),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(-0.95, 0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 150.0),
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 300),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: AlignmentDirectional(-1, 0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10, 0, 0, 0),
+                                      child: InkWell(
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'Home',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                              TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                PageTransitionType.fade,
+                                                duration:
+                                                Duration(milliseconds: 400),
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Icon(
+                                          Icons.arrow_back,
+                                          color: Colors.white,
+                                          size: 32,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(0, 0),
+                            child: Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 150),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -86,59 +129,101 @@ class _MusicWidgetState extends State<MusicWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Fira Sans Condensed',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBtnText,
-                                          fontSize: 48.0,
-                                        ),
+                                      fontFamily: 'Fira Sans Condensed',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBtnText,
+                                      fontSize: 48,
+                                    ),
                                   ),
                                   Text(
                                     'Sleep track',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
-                                          fontFamily: 'Fira Sans Condensed',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBtnText,
-                                          fontSize: 24.0,
-                                        ),
+                                      fontFamily: 'Fira Sans Condensed',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBtnText,
+                                      fontSize: 24,
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Icon(
-                                      Icons.replay_10,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                      size: 50.0,
-                                    ),
-                                    Icon(
-                                      Icons.pause_circle_filled_sharp,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                      size: 100.0,
-                                    ),
-                                    Icon(
-                                      Icons.forward_10,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                      size: 50.0,
-                                    ),
-                                  ],
-                                ),
-                              ],
+                            alignment: AlignmentDirectional(0, 0),
+                            child: Padding(
+                              padding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 70),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Icon(
+                                        Icons.replay_10,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                        size: 50,
+                                      ),
+                                      Icon(
+                                        Icons.pause_circle_filled_sharp,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                        size: 100,
+                                      ),
+                                      Icon(
+                                        Icons.forward_10,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBtnText,
+                                        size: 50,
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      FlutterFlowAudioPlayer(
+                                        audio: Audio.network(
+                                          'https://filesamples.com/samples/audio/mp3/sample3.mp3',
+                                          metas: Metas(
+                                            id: 'sample3.mp3-wqth51ww',
+                                            title: 'Down the river',
+                                          ),
+                                        ),
+                                        titleTextStyle:
+                                        FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                          fontFamily:
+                                          'Fira Sans Condensed',
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        playbackDurationTextStyle:
+                                        FlutterFlowTheme.of(context)
+                                            .bodyText1
+                                            .override(
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFF9D9D9D),
+                                          fontSize: 12,
+                                        ),
+                                        fillColor: Color(0x01FFFFFF),
+                                        playbackButtonColor:
+                                        FlutterFlowTheme.of(context)
+                                            .tertiary400,
+                                        activeTrackColor: Color(0xFF57636C),
+                                        elevation: 4,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

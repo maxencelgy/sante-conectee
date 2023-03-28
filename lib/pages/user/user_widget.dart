@@ -10,19 +10,43 @@ import 'package:breath_meditation/change_notifier.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import '/pages/home/home_widget.dart';
 import '/pages/discover/discover_widget.dart';
+import '/flutter_flow/nav/nav.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await FlutterFlowTheme.initialize();
+
+  // runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => MyState(),
+      child: UserWidget(),
+    ),
+  );
+}
+
 
 class UserWidget extends StatefulWidget {
   const UserWidget({Key? key}) : super(key: key);
 
   @override
-  _UserWidgetState createState() => _UserWidgetState();
+  State<UserWidget> createState() => _UserWidgetState();
+  static _UserWidgetState of(BuildContext context) =>
+      context.findAncestorStateOfType<_UserWidgetState>()!;
 }
 
 
 class _UserWidgetState extends State<UserWidget> {
+
   late UserModel _model;
   String _currentPageName = 'Profile';
   late Widget? _currentPage;
+  Locale? _locale;
+  late GoRouter _router;
+  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  late AppStateNotifier _appStateNotifier;
+
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -30,29 +54,27 @@ class _UserWidgetState extends State<UserWidget> {
   @override
   void initState() {
     super.initState();
+    _appStateNotifier = AppStateNotifier();
+    _router = createRouter(_appStateNotifier);
     _model = createModel(context, () => UserModel());
+    Future.delayed(Duration(seconds: 1),
+            () => setState(() => _appStateNotifier.stopShowingSplashImage()));
   }
 
-
+  void setThemeMode(ThemeMode mode) => setState(() {
+    _themeMode = mode;
+    FlutterFlowTheme.saveThemeMode(mode);
+  });
   @override
   void dispose() {
     _model.dispose();
-
     _unfocusNode.dispose();
     super.dispose();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<MyState>(context);
-    final tabs = {
-      'Home': HomeWidget(),
-      'Discover': DiscoverWidget(),
-      'User': UserWidget(),
-    };
-    final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
     return Scaffold(
       key: scaffoldKey,
@@ -82,7 +104,7 @@ class _UserWidgetState extends State<UserWidget> {
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 170.0, 0.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 170.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -104,11 +126,11 @@ class _UserWidgetState extends State<UserWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyText1
                                       .override(
-                                        fontFamily: 'Fira Sans Condensed',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        fontSize: 24.0,
-                                      ),
+                                    fontFamily: 'Fira Sans Condensed',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                    fontSize: 24.0,
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -126,10 +148,10 @@ class _UserWidgetState extends State<UserWidget> {
                           Text(
                             'Member since 2021',
                             style:
-                                FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Fira Sans Condensed',
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            FlutterFlowTheme.of(context).subtitle2.override(
+                              fontFamily: 'Fira Sans Condensed',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),
@@ -161,11 +183,11 @@ class _UserWidgetState extends State<UserWidget> {
                           Text(
                             'Editer profil',
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Fira Sans Condensed',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                    ),
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Fira Sans Condensed',
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBtnText,
+                            ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
@@ -202,11 +224,11 @@ class _UserWidgetState extends State<UserWidget> {
                           Text(
                             'Paramètres',
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Fira Sans Condensed',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                    ),
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Fira Sans Condensed',
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBtnText,
+                            ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
@@ -243,11 +265,11 @@ class _UserWidgetState extends State<UserWidget> {
                           Text(
                             'Statistiques',
                             style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Fira Sans Condensed',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                    ),
+                            FlutterFlowTheme.of(context).bodyText1.override(
+                              fontFamily: 'Fira Sans Condensed',
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBtnText,
+                            ),
                           ),
                           Icon(
                             Icons.arrow_forward_ios,
@@ -264,6 +286,42 @@ class _UserWidgetState extends State<UserWidget> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class NavBarPage extends StatefulWidget {
+  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+
+  final String? initialPage;
+  final Widget? page;
+
+  @override
+  _NavBarPageState createState() => _NavBarPageState();
+}
+
+/// This is the private State class that goes with NavBarPage.
+class _NavBarPageState extends State<NavBarPage> {
+  String _currentPageName = 'User';
+  late Widget? _currentPage;
+
+  @override
+  void initState() {
+    super.initState();
+    _currentPageName = widget.initialPage ?? _currentPageName;
+    _currentPage = UserWidget();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = {
+      'Home': HomeWidget(),
+      'Discover': DiscoverWidget(),
+      'User': UserWidget(),
+    };
+    final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
+    return Scaffold(
+      body: _currentPage ?? tabs[_currentPageName],
       extendBody: true,
       bottomNavigationBar: FloatingNavbar(
         currentIndex: currentIndex,

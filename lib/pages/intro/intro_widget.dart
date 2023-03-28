@@ -1,5 +1,7 @@
 import 'package:breath_meditation/index.dart';
+import 'package:flutter/gestures.dart';
 
+import '../inscription_page.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -46,7 +48,9 @@ class _IntroWidgetState extends State<IntroWidget> {
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
           child: Align(
             alignment: AlignmentDirectional(0.0, 0.0),
-            child: Column(
+            child: Container(
+              margin: EdgeInsets.all(30),
+            child :Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -55,18 +59,18 @@ class _IntroWidgetState extends State<IntroWidget> {
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: Image.asset(
                     'assets/images/logobreathe.png',
-                    width: 300.0,
-                    height: 160.2,
+                    width: 500.0,
+                    height: 360.2,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Text(
-                        'BREATHE',
+                        'BREATH',
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Fira Sans Condensed',
                               color:
@@ -85,80 +89,58 @@ class _IntroWidgetState extends State<IntroWidget> {
                     ],
                   ),
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ConnexionPage(),
-                          ),
-                        );
-                      },
-                      text: 'SE CONNECTER',
-                      options: FFButtonOptions(
-                        width: 130.0,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF0FD0DA),
-                        textStyle: FlutterFlowTheme.of(context)
-                            .subtitle2
-                            .override(
-                              fontFamily: 'Fira Sans Condensed',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                            ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    child: Text(
+                      "Se connecter",
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: "FiraSansCondensed"),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Pas de compte ?',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Fira Sans Condensed',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                    ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              'S\'inscrire',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Fira Sans Condensed',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBtnText,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll<Color>(
+                            Color(0xFF0FD0DA)),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16)),
+                        )),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ConnexionPage()),
+                      );
+                    }
+                  ),
                 ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: RichText(
+                      text: TextSpan(children: <TextSpan>[
+                        TextSpan(
+                            text: 'Vous n\'avez pas de compte? ',
+                            style: TextStyle(color: Colors.white)),
+                        TextSpan(
+                            text: 'S\'inscrire',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => InscriptionPage()),
+                                );
+                              })
+                      ])),
+                )
               ],
             ),
+          ),
           ),
         ),
       ),
