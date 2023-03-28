@@ -58,7 +58,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
       setState(() {
         _isLoading = false;
         _isError = true;
-        _errorMessage = body['message'];
+        _errorMessage = 'Username ou mot de passe incorrect';
       });
     }
   }
