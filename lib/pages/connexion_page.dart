@@ -107,7 +107,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
                         controller: _usernameController,
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                            hintText: "Email",
+                            hintText: "Pseudo",
                             hintStyle: TextStyle(color: Colors.white),
                             enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.white))),
