@@ -65,6 +65,7 @@ class _ConnexionPageState extends State<ConnexionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF122944),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
