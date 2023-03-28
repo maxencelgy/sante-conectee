@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(
+                      Navigator.pushReplacement(context, MaterialPageRoute(
                           builder: (context) => ConnexionPage()
                       )
                       );

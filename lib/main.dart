@@ -101,14 +101,14 @@ class _NavBarPageState extends State<NavBarPage> {
   late Widget? _currentPage;
 
   @override
-  void initState() {
-    super.initState();
-    _currentPageName = widget.initialPage ?? _currentPageName;
-    _currentPage = IntroWidget();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final user = Provider.of<MyState>(context);
+    _currentPage = '${user.username}' == '' ? IntroWidget() : DiscoverWidget();
   }
-
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<MyState>(context);
     final tabs = {
       'Home': HomeWidget(),
       'Discover': DiscoverWidget(),

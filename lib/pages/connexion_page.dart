@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:http/http.dart' as http;
 import 'package:breath_meditation/change_notifier.dart';
+import 'package:breath_meditation/main.dart';
 
 class ConnexionPage extends StatefulWidget {
   @override
@@ -45,10 +46,10 @@ class _ConnexionPageState extends State<ConnexionPage> {
       final user = Provider.of<MyState>(context, listen: false);
       user.updateMyVariable(json.decode(response.body)['accessToken']);
       // Login successful
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => UserWidget(),
+          builder: (context) => MyApp(),
         ),
       );
     } else {
@@ -65,7 +66,8 @@ class _ConnexionPageState extends State<ConnexionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: Container(
+        color: Color.fromRGBO(18, 41, 68, 1),
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
