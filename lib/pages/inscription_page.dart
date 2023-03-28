@@ -65,6 +65,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF122944),
         body: SingleChildScrollView(
       child: Container(
         child: Column(
