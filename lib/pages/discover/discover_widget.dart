@@ -79,7 +79,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Discover',
+                      'Découvrir',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Fira Sans Condensed',
                             color: FlutterFlowTheme.of(context).primaryBtnText,
@@ -103,51 +103,27 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 0.0, 0.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'Insomnia',
-                      options: FFButtonOptions(
-                        width: 100.0,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF0FD0DA),
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Fira Sans Condensed',
-                                  color: Colors.white,
-                                ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(15.0),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                    Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () {
                           print('Button pressed ...');
                         },
-                        text: 'Depression',
+                        text: 'Stress',
                         options: FFButtonOptions(
                           width: 100.0,
                           height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                           color: Color(0xFF0FD0DA),
                           textStyle:
                               FlutterFlowTheme.of(context).subtitle2.override(
@@ -158,37 +134,153 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                             color: Colors.transparent,
                             width: 1.0,
                           ),
-                          borderRadius: BorderRadius.circular(15.0),
+                          borderRadius: BorderRadius.circular(50.0),
                         ),
                       ),
                     ),
-                    FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
-                      },
-                      text: 'Sleep',
-                      options: FFButtonOptions(
-                        width: 100.0,
-                        height: 40.0,
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF0FD0DA),
-                        textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Fira Sans Condensed',
-                                  color: Colors.white,
-                                ),
-                        borderSide: BorderSide(
-                          color: Colors.transparent,
-                          width: 1.0,
+                    Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      child: FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: 'Concentration',
+                          options: FFButtonOptions(
+                            width: 130.0,
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Color(0xFF0FD0DA),
+                            textStyle:
+                                FlutterFlowTheme.of(context).subtitle2.override(
+                                      fontFamily: 'Fira Sans Condensed',
+                                      color: Colors.white,
+                                    ),
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
                         ),
-                        borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () {
+                          print('Button pressed ...');
+                        },
+                        text: 'Esprit',
+                        options: FFButtonOptions(
+                          width: 100.0,
+                          height: 40.0,
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFF0FD0DA),
+                          textStyle:
+                              FlutterFlowTheme.of(context).subtitle2.override(
+                                    fontFamily: 'Fira Sans Condensed',
+                                    color: Colors.white,
+                                  ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () {
+                          print('Button pressed ...');
+                        },
+                        text: 'Santé',
+                        options: FFButtonOptions(
+                          width: 100.0,
+                          height: 40.0,
+                          padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFF0FD0DA),
+                          textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Fira Sans Condensed',
+                            color: Colors.white,
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () {
+                          print('Button pressed ...');
+                        },
+                        text: 'Bien-être',
+                        options: FFButtonOptions(
+                          width: 100.0,
+                          height: 40.0,
+                          padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFF0FD0DA),
+                          textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Fira Sans Condensed',
+                            color: Colors.white,
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () {
+                          print('Button pressed ...');
+                        },
+                        text: 'Insomnie',
+                        options: FFButtonOptions(
+                          width: 100.0,
+                          height: 40.0,
+                          padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          color: Color(0xFF0FD0DA),
+                          textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Fira Sans Condensed',
+                            color: Colors.white,
+                          ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1.0,
+                          ),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
                       ),
                     ),
                   ],
                 ),
+              ),
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 40.0, 0.0),
@@ -227,14 +319,14 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                             offset: Offset(0.0, 2.0),
                           )
                         ],
-                        borderRadius: BorderRadius.circular(30.0),
+                        borderRadius: BorderRadius.circular(15.0),
                       ),
                       child: Container(
                         width: 100.0,
                         height: 100.0,
                         decoration: BoxDecoration(
                           color: Color(0x40000000),
-                          borderRadius: BorderRadius.circular(30.0),
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -262,7 +354,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(30.0, 30.0, 0.0, 0.0),
                     child: Text(
-                      'Recent',
+                      'Ajout récent',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Fira Sans Condensed',
                             color: Color(0x8EFFFFFF),
@@ -288,13 +380,14 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                             'https://cdn.discordapp.com/attachments/1060842126352597062/1090990764835741746/stars.png',
                           ).image,
                         ),
-                        borderRadius: BorderRadius.circular(25.0),
+                        borderRadius: BorderRadius.circular(15.0),
                       ),
                       child: Container(
                         width: 100.0,
                         height: 100.0,
                         decoration: BoxDecoration(
                           color: Color(0x32000000),
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -302,7 +395,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 10.0, 0.0, 0.0),
+                                  5.0, 5.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () {
                                   print('Button pressed ...');
@@ -327,13 +420,13 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(50.0),
                                 ),
                               ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 10.0, 0.0, 0.0),
+                                  5.0, 5.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () {
                                   print('Button pressed ...');
@@ -357,7 +450,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(50.0),
                                 ),
                               ),
                             ),
@@ -376,13 +469,14 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                             'https://cdn.discordapp.com/attachments/1060842126352597062/1090990765154517012/sunset.png',
                           ).image,
                         ),
-                        borderRadius: BorderRadius.circular(25.0),
+                        borderRadius: BorderRadius.circular(15.0),
                       ),
                       child: Container(
                         width: 100.0,
                         height: 100.0,
                         decoration: BoxDecoration(
                           color: Color(0x32000000),
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -390,12 +484,12 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 10.0, 0.0, 0.0),
+                                  5.0, 5.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () {
                                   print('Button pressed ...');
                                 },
-                                text: 'Sleep',
+                                text: 'Santé',
                                 options: FFButtonOptions(
                                   width: 65.0,
                                   height: 20.0,
@@ -415,13 +509,13 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(50.0),
                                 ),
                               ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 10.0, 0.0, 0.0),
+                                  5.0, 5.0, 0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () {
                                   print('Button pressed ...');
@@ -445,7 +539,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  borderRadius: BorderRadius.circular(50.0),
                                 ),
                               ),
                             ),
