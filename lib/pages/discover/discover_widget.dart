@@ -1,3 +1,5 @@
+import 'package:breath_meditation/index.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -6,6 +8,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'discover_model.dart';
 export 'discover_model.dart';
+import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart';
+import 'dart:convert';
+
 
 class DiscoverWidget extends StatefulWidget {
   const DiscoverWidget({Key? key}) : super(key: key);
@@ -19,12 +25,31 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
+  List<dynamic> _sounds = [];
+  Future<List<dynamic>> fetchSounds() async {
+    final response = await http.get(Uri.parse('https://api-node-breathe.hop.sh/api/sounds/all'));
+    if (response.statusCode == 200) {
+      return json.decode(response.body) as List<dynamic>;
+    } else {
+      throw Exception('Failed to load sounds');
+    }
+  }
+
+  void _loadSounds() {
+    fetchSounds().then((sounds) {
+      setState(() {
+        _sounds = sounds;
+      });
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => DiscoverModel());
+    _loadSounds();
   }
+
+
 
   @override
   void dispose() {
@@ -157,12 +182,24 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
-                child: Row(
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 40.0, 40.0, 0.0),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
+                  children:
+                  _sounds.map((data) => GestureDetector(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MusicWidget(musicId: data['_id'],category: data['category'], url: data['url'], urlImg: data['urlImg'], title: data['title']),
+                        ),
+                      );
+                    },
+                      child: Container(
+                      margin: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                       width: 150.0,
                       height: 100.0,
                       decoration: BoxDecoration(
@@ -170,7 +207,8 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: Image.asset(
-                            'assets/images/image_2.png',
+                            data['urlImg'],
+
                           ).image,
                         ),
                         boxShadow: [
@@ -193,7 +231,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 10.0, 0.0, 0.0),
                           child: Text(
-                            'River Lover',
+                            data['title'],
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Fira Sans Condensed',
@@ -204,42 +242,8 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 150.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: Image.asset(
-                            'assets/images/image_3.png',
-                          ).image,
-                        ),
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      child: Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                          color: Color(0x40000000),
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 0.0, 0.0),
-                          child: Text(
-                            'Mountains\n',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Fira Sans Condensed',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBtnText,
-                                    ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    )).toList(),
+                ),
                 ),
               ),
               Row(

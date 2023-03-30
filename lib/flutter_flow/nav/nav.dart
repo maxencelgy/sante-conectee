@@ -16,7 +16,6 @@ import 'package:breath_meditation/pages/connexion_page.dart';
 import 'package:flutter/material.dart';
 import 'package:breath_meditation/pages/login_page.dart';
 import 'package:breath_meditation/pages/profile_page.dart';
-import 'package:breath_meditation/pages/bluetooth_page.dart';
 import 'package:breath_meditation/change_notifier.dart';
 import 'package:provider/provider.dart';
 
@@ -90,7 +89,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Music',
               path: 'music',
-              builder: (context, params) => MusicWidget(),
+              builder: (context, params) => MusicWidget(musicId: '1',category:'a', urlImg: 'a', url: 'a', title: 'a'),
             ),
             FFRoute(
               name: 'User',

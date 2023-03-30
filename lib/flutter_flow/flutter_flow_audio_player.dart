@@ -19,6 +19,7 @@
 import 'dart:math' as math;
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
+import 'package:rxdart/streams.dart';
 export 'package:assets_audio_player/assets_audio_player.dart';
 
 class FlutterFlowAudioPlayer extends StatefulWidget {
@@ -78,7 +79,7 @@ class _FlutterFlowAudioPlayerState extends State<FlutterFlowAudioPlayer> {
     super.didUpdateWidget(old);
     final changed = old.audio.path != widget.audio.path ||
         old.audio.audioType != widget.audio.audioType;
-    final isPlaying = false;
+    final isPlaying = _assetsAudioPlayer?.isPlaying.value ?? false;
     if (changed && !isPlaying) {
       openPlayer();
     }

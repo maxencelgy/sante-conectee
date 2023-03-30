@@ -26,19 +26,17 @@ void main() async {
   );
 }
 
-
 class UserWidget extends StatefulWidget {
   const UserWidget({Key? key}) : super(key: key);
 
   @override
   State<UserWidget> createState() => _UserWidgetState();
+
   static _UserWidgetState of(BuildContext context) =>
       context.findAncestorStateOfType<_UserWidgetState>()!;
 }
 
-
 class _UserWidgetState extends State<UserWidget> {
-
   late UserModel _model;
   String _currentPageName = 'Profile';
   late Widget? _currentPage;
@@ -46,7 +44,6 @@ class _UserWidgetState extends State<UserWidget> {
   late GoRouter _router;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
   late AppStateNotifier _appStateNotifier;
-
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -58,13 +55,14 @@ class _UserWidgetState extends State<UserWidget> {
     _router = createRouter(_appStateNotifier);
     _model = createModel(context, () => UserModel());
     Future.delayed(Duration(seconds: 1),
-            () => setState(() => _appStateNotifier.stopShowingSplashImage()));
+        () => setState(() => _appStateNotifier.stopShowingSplashImage()));
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {
-    _themeMode = mode;
-    FlutterFlowTheme.saveThemeMode(mode);
-  });
+        _themeMode = mode;
+        FlutterFlowTheme.saveThemeMode(mode);
+      });
+
   @override
   void dispose() {
     _model.dispose();
@@ -82,207 +80,219 @@ class _UserWidgetState extends State<UserWidget> {
       body: SafeArea(
         child: GestureDetector(
           onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width * 1.0,
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: Image.asset(
-                          'assets/images/foresrt_1_(2).png',
-                        ).image,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Stack(
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 1.0,
+                      height: MediaQuery.of(context).size.height * 0.3,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: Image.asset(
+                            'assets/images/foresrt_1_(2).png',
+                          ).image,
+                        ),
                       ),
                     ),
-                  ),
-                  Align(
-                    alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Padding(
-                      padding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 170.0, 0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Image.asset(
-                            'assets/images/Ellipse_3_(1).png',
-                            width: 150.0,
-                            height: 150.0,
-                            fit: BoxFit.cover,
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 5.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  '${user.username}',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 170.0, 0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Image.asset(
+                              'assets/images/Ellipse_3_(1).png',
+                              width: 150.0,
+                              height: 150.0,
+                              fit: BoxFit.cover,
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    '${user.username}',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Fira Sans Condensed',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 24.0,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 0.0, 0.0, 0.0),
+                                    child: FaIcon(
+                                      FontAwesomeIcons.crown,
+                                      color: FlutterFlowTheme.of(context)
+                                          .tertiary400,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Text(
+                              'Member since 2021',
+                              style: FlutterFlowTheme.of(context)
+                                  .subtitle2
+                                  .override(
+                                    fontFamily: 'Fira Sans Condensed',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 275.0,
+                        height: 65.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1E3756),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(
+                              Icons.person,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              size: 24.0,
+                            ),
+                            Text(
+                              'Editer profil',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
                                     fontFamily: 'Fira Sans Condensed',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBtnText,
-                                    fontSize: 24.0,
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 0.0, 0.0, 0.0),
-                                  child: FaIcon(
-                                    FontAwesomeIcons.crown,
-                                    color: FlutterFlowTheme.of(context)
-                                        .tertiary400,
-                                    size: 24.0,
-                                  ),
-                                ),
-                              ],
                             ),
-                          ),
-                          Text(
-                            'Member since 2021',
-                            style:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                              fontFamily: 'Fira Sans Condensed',
-                              fontWeight: FontWeight.bold,
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              size: 24.0,
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 275.0,
-                      height: 65.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF1E3756),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Icon(
-                            Icons.person,
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            size: 24.0,
-                          ),
-                          Text(
-                            'Editer profil',
-                            style:
-                            FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Fira Sans Condensed',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBtnText,
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            size: 24.0,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
                 ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 275.0,
-                      height: 65.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF1E3756),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Icon(
-                            Icons.settings,
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            size: 24.0,
-                          ),
-                          Text(
-                            'Paramètres',
-                            style:
-                            FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Fira Sans Condensed',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBtnText,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 275.0,
+                        height: 65.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1E3756),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(
+                              Icons.settings,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              size: 24.0,
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            size: 24.0,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 275.0,
-                      height: 65.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFF1E3756),
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Icon(
-                            Icons.bar_chart,
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            size: 24.0,
-                          ),
-                          Text(
-                            'Statistiques',
-                            style:
-                            FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Fira Sans Condensed',
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBtnText,
+                            Text(
+                              'Paramètres',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Fira Sans Condensed',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                  ),
                             ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            size: 24.0,
-                          ),
-                        ],
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              size: 24.0,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 275.0,
+                        height: 65.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1E3756),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Icon(
+                              Icons.bar_chart,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              size: 24.0,
+                            ),
+                            Text(
+                              'Statistiques',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                    fontFamily: 'Fira Sans Condensed',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                  ),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              size: 24.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
