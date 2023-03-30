@@ -77,7 +77,7 @@ class _MusicWidgetState extends State<MusicWidget> {
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: Image.asset(
+                        image: Image.network(
                             '${this.widget.urlImg}',
                         ).image,
                       ),
@@ -192,7 +192,7 @@ class _MusicWidgetState extends State<MusicWidget> {
                                           children: [
                                             FlutterFlowAudioPlayer(
                                               audio: Audio.network(
-                                                'https://filesamples.com/samples/audio/mp3/sample3.mp3',
+                                                '${this.widget.url}',
                                                 metas: Metas(
                                                   id: 'sample3.mp3-tz0gd8fs',
                                                   title: '${this.widget.title}',

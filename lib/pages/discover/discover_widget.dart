@@ -206,7 +206,7 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: Image.asset(
+                          image: Image.network(
                             data['urlImg'],
 
                           ).image,
@@ -275,8 +275,8 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: Image.asset(
-                            'assets/images/image_3.png',
+                          image: Image.network(
+                            'https://cdn.discordapp.com/attachments/1060842126352597062/1090990764835741746/stars.png',
                           ).image,
                         ),
                         borderRadius: BorderRadius.circular(25.0),
@@ -363,8 +363,8 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: Image.asset(
-                            'assets/images/Mistifux_peaceful_flat_color_mountains--v_4_4cbed5c1-7ef0-41da-8136-bcc73f73940d_3_(1).png',
+                          image: Image.network(
+                            'https://cdn.discordapp.com/attachments/1060842126352597062/1090990765154517012/sunset.png',
                           ).image,
                         ),
                         borderRadius: BorderRadius.circular(25.0),
