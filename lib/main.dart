@@ -109,6 +109,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<MyState>(context);
+    final hasUsername = '${user.username}' != '';
     final tabs = {
       'Home': HomeWidget(),
       'Discover': DiscoverWidget(),
@@ -118,7 +119,7 @@ class _NavBarPageState extends State<NavBarPage> {
     return Scaffold(
       body: _currentPage ?? tabs[_currentPageName],
       extendBody: true,
-      bottomNavigationBar: FloatingNavbar(
+      bottomNavigationBar: ! hasUsername ? null :  FloatingNavbar(
         currentIndex: currentIndex,
         onTap: (i) => setState(() {
           _currentPage = null;

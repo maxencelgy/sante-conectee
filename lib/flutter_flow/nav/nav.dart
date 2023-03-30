@@ -7,18 +7,15 @@ import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../index.dart';
 import '../../main.dart';
+import '../../pages/bluetooth/bluetooth_widget.dart';
+import '../../pages/search/search_widget.dart';
 import 'serialization_util.dart';
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
-import 'package:breath_meditation/pages/home_page.dart';
-import 'package:breath_meditation/pages/inscription_page.dart';
-import 'package:breath_meditation/pages/connexion_page.dart';
-import 'package:flutter/material.dart';
-import 'package:breath_meditation/pages/login_page.dart';
-import 'package:breath_meditation/pages/profile_page.dart';
-import 'package:breath_meditation/pages/bluetooth_page.dart';
-import 'package:breath_meditation/change_notifier.dart';
-import 'package:provider/provider.dart';
+
+
+export 'package:go_router/go_router.dart';
+export 'serialization_util.dart';
 
 
 const kTransitionInfoKey = '__transition_info__';
@@ -90,7 +87,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Music',
               path: 'music',
-              builder: (context, params) => MusicWidget(),
+              builder: (context, params) => MusicWidget(musicId: '1',category:'a', urlImg: 'a', url: 'a', title: 'a'),
             ),
             FFRoute(
               name: 'User',
@@ -111,6 +108,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                   ? NavBarPage(initialPage: 'Connexion')
                   : ConnexionPage(),
             ),
+            FFRoute(
+              name: 'Search',
+              path: 'search',
+              builder: (context, params) => SearchWidget(),
+            ),
+            FFRoute(
+              name: 'bluetooth',
+              path: 'bluetooth',
+              builder: (context, params) => BluetoothWidget(),
+            )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
       ],

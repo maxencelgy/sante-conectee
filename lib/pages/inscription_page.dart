@@ -114,7 +114,7 @@ class _InscriptionPageState extends State<InscriptionPage> {
                             color: Colors.white
                         ),
                         decoration: InputDecoration(
-                            hintText: "Prénom et nom",
+                            hintText: "Pseudo",
                             hintStyle: TextStyle(
                                 color: Colors.white
                             ),
