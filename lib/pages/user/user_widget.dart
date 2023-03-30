@@ -1,3 +1,5 @@
+import 'package:breath_meditation/pages/bluetooth/bluetooth_widget.dart';
+
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -205,46 +207,56 @@ class _UserWidgetState extends State<UserWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 35.0, 0.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: 275.0,
-                        height: 65.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF1E3756),
+                  child: InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BluetoothWidget(),
                         ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(
-                              Icons.settings,
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                              size: 24.0,
-                            ),
-                            Text(
-                              'Paramètres',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Fira Sans Condensed',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBtnText,
-                                  ),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
-                              size: 24.0,
-                            ),
-                          ],
+                      );
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          width: 275.0,
+                          height: 65.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF1E3756),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Icon(
+                                Icons.settings,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                size: 24.0,
+                              ),
+                              Text(
+                                'Paramètres',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Fira Sans Condensed',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBtnText,
+                                    ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color:
+                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                size: 24.0,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Padding(

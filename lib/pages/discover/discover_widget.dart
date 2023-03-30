@@ -1,4 +1,5 @@
 import 'package:breath_meditation/index.dart';
+import 'package:breath_meditation/pages/search/search_widget.dart';
 
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -85,11 +86,19 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                             fontSize: 48.0,
                           ),
                     ),
-                    Icon(
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SearchWidget()),
+                    );
+                  },
+                  child: Icon(
                       Icons.search,
                       color: FlutterFlowTheme.of(context).primaryBtnText,
                       size: 34.0,
                     ),
+                ),
                   ],
                 ),
               ),
