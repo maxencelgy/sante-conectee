@@ -88,47 +88,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Align(
-                                    alignment: AlignmentDirectional(0, 1),
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0x00122944),
-                                            Color(0xEA122944)
-                                          ],
-                                          stops: [0, 1],
-                                          begin: AlignmentDirectional(0, -1),
-                                          end: AlignmentDirectional(0, 1),
-                                        ),
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                        AlignmentDirectional(0, 0.85),
-                                        child: Padding(
-                                          padding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              25, 0, 0, 40),
-                                          child: Text(
-                                            'Votre méditation programmée',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyText1
-                                                .override(
-                                              fontFamily:
-                                              'Fira Sans Condensed',
-                                              color: FlutterFlowTheme.of(
-                                                  context)
-                                                  .primaryBtnText,
-                                              fontSize: 20,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+
                                   Align(
                                     alignment: AlignmentDirectional(0, 1),
                                     child: Container(
@@ -470,8 +430,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         0, 0, 25, 0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
-                                      child: Image.asset(
-                                        'assets/images/camp_3.png',
+                                      child: Image.network(
+                                        'https://cdn.discordapp.com/attachments/1060842126352597062/1090990765917872158/canyon.png',
                                         width:
                                         MediaQuery.of(context).size.width *
                                             1.6,

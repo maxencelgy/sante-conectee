@@ -104,7 +104,7 @@ class _NavBarPageState extends State<NavBarPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     final user = Provider.of<MyState>(context);
-    _currentPage = '${user.username}' == '' ? IntroWidget() : DiscoverWidget();
+    _currentPage = '${user.username}' == '' ? IntroWidget() : HomeWidget();
   }
   @override
   Widget build(BuildContext context) {
@@ -148,7 +148,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Home',
+                  'Accueil',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 0
@@ -172,7 +172,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   size: 24.0,
                 ),
                 Text(
-                  'Explorer',
+                  'Découvrir',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 1
