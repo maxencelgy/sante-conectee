@@ -83,7 +83,8 @@ class _DiscoverWidgetState extends State<DiscoverWidget> {
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Fira Sans Condensed',
                             color: FlutterFlowTheme.of(context).primaryBtnText,
-                            fontSize: 48.0,
+                            fontSize: 38.0,
+                            fontWeight: FontWeight.bold,
                           ),
                     ),
                 InkWell(

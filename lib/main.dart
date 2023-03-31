@@ -104,7 +104,7 @@ class _NavBarPageState extends State<NavBarPage> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     final user = Provider.of<MyState>(context);
-    _currentPage = '${user.username}' == '' ? IntroWidget() : DiscoverWidget();
+    _currentPage = '${user.username}' == '' ? IntroWidget() : HomeWidget();
   }
   @override
   Widget build(BuildContext context) {

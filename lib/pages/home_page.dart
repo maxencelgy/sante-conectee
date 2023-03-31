@@ -50,7 +50,7 @@ class HomePage extends StatelessWidget {
           //     backgroundColor: MaterialStatePropertyAll<Color>(Color(0xFF0FD0DA)),
           //   ),
           //   child: const Text(
-          //     "Se connecter",
+          //     "Se connectere",
           //     style: TextStyle(
           //         fontSize: 20
           //     ),
