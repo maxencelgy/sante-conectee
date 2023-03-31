@@ -237,7 +237,7 @@ class _UserWidgetState extends State<UserWidget> {
                                 size: 24.0,
                               ),
                               Text(
-                                'Paramètres',
+                                'Bluetooth',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
                                     .override(
